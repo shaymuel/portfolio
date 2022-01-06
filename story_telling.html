@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <title>Telling a Story</title>
+  <script>
+      function load(){
+        let storyName = document.getElementById("storyName").value;
+        let storyHTML = localStorage.getItem(storyName);
+        document.getElementById("storyText").value = storyHTML;
+      }
+      function save(){
+        let storyName = document.getElementById("storyName").value;
+        let storyHTML = document.getElementById("storyText").value;
+        localStorage.setItem(storyName, storyHTML);
+
+        }
+      function display(){
+        let storyHTML = document.getElementById("storyText").value;
+        document.getElementById("showStory").innerHTML = storyHTML;
+        }
+
+  </script>
+
+  <style>
+      textarea {
+          background-color: beige;
+          width: 40%;
+      }
+  </style>
+</head>
+
+<body>
+	<h1>Tell me a story!</h1>
+    <input type="text" id="storyName" placeholder="Type your story name here">
+    <section>
+        <button onclick="load()">Edit Story</button>
+        <button onclick="save()">Save Story</button>
+        <button onclick="display()">Show Story</button>
+    </section>
+    <textarea placeholder="Type your Story Here!" id="storyText"></textarea>
+
+    <p id="showStory"></p>
+</body>
+</html>
