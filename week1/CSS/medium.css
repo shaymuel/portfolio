@@ -1,7 +1,4 @@
 @media screen and (max-width: 799px) and (min-width: 500px) {
-ul {
-    grid-template-columns: 1fr 1fr;
-}
 
 h1 {
     text-align: center;
