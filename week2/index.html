@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 2 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 2 Notes</h1>
+    <p>This week I spent the majority of my time reading in the textbook this week.</p>
+    <a href="teamActivity.html"><h2>Week 1 Team Activity</h2></a>
+    <p><strong>Reserved Words In Javascript</strong></p>
+    <p>abstract, await, boolean, break, byte, case, catch, char, class, const, continue, debugger, default, delete, do,
+        double, else, enum, export, extends, false, final, finally, float, for, function, goto, if, implements, import,
+        in instanceof, int, interface, let, long, native, new, null, package, private, protected, public, return, short,
+        static, super, switch, synchronized, this, throw, throws, transient, true, try, typeof, var, volatile, void,
+        while, with, yield</p>
+    <p><strong>Words not reserved but still important to the language</strong></p>
+    <p>undefined, NaN, Infinity</p>
+    <p><strong>Changing the value of a const</strong></p>
+    <p>Ex:
+        const name = { value: 'Alexa' }; // an object <br>
+        name.value = 'Siri'; // change the value <br>
+        'Siri' //output <br>
+    </p>
+    <h2>Global Scope</h2>
+    <p>Any variable declared outside of a block, accessibly everywhere in the program.</p>
+    <h2>Local Scope</h2>
+    <p>Any variables defined inside a block, only visible within the locality of the block.</p>
+    <h2>Scope</h2>
+    <p>Global variables can be overwritten inside of a block. Global scope can also be made within a block and accessed
+        outside of a block when not using let or const.</p>
+    <p>Non-primitive values assigned to a variable, then updated will update all references to that object:</p>
+    <p>Ex: const c = { value: 1 }; <br>
+        let d = c; // c.value = 1, d.value = 1 <br>
+        d.value = 2; // c.value = 2, d.value = 2 <br>
+    </p>
+    <p>When using an apostrophe in a string, double quotes are needed otherwise it will cause an error, or place a
+        backslash before the apostrophe</p>
+    <p>Primitive datatypes cannot be changed</p>
+    <h2>Template Literals</h2>
+    <p>Uses the backtick character ( ` )</p>
+    <p>When using this both types of quote marks can be used.</p>
+    <p>Allows interpolation <br>
+        Ex: const name = `Siri`; <br>
+        `Hello ${ name }!`; <br>
+        'Hello Siri!' //output <br>
+    </p>
+    <p>Can also contain line breaks ( /n )</p>
+    <p>To use a backtick in a template literal, use the backslash ( \` )</p>
+    <h2>Symbols</h2>
+    <p>Syntax for creating a new symbol: <br>
+        const uniqueID = Symbol();</p>
+    <h2>Converting Objects</h2>
+    <ul>
+        <li>Number(); will convert a string into a number</li>
+        <li>String(); will change a number to a string or toString(); another option </li>
+        <li>parseInt(); can convert a string representation to a number back to a number value, you can specifiy the
+            base of the number you are trying to convert
+        </li>
+        <li>parseFloat(); converts strings into floating point decimal numbers;</li>
+    </ul>
+    <p><strong>Boolean(); Falsy Values</strong></p>
+    <ul>
+        <li>"" // double quoted empty string literal</li>
+        <li>'' // single quoted empty string literal</li>
+        <li>`` // empty template literal</li>
+        <li>0</li>
+        <li>0 // considered different to 0 by JavaScript!</li>
+        <li>NaN</li>
+        <li>false</li>
+        <li>null</li>
+        <li>undefined</li>
+        <li>You can double negate (!!) a value: Ex: !!''; //false</li>
+    </ul>
+    <p>When checking if greater than or equal too uses hard operators: <br>
+        8 > 8 || 8 === 8;<br>
+        true //output<br>
+        8 > '8' || 8 === '8'; <br>
+        false //output<br>
+    </p>
+    <h2>Arrays</h2>
+    <p>Create a new array syntax: <br>
+        const myArray = new Array(); Or<br>
+        const myArray = [];</br>
+    </p>
+    <p>Array Methods:</p>
+    <ul>
+        <li>Pop(); removes last item of an array</li>
+        <li>Shift(); removes first item</li>
+        <li>Push(); appends new value to edn of the array</li>
+        <li>Unshift(); puts new item to the beginning of the array</li>
+        <li>Concat(); merge more than one or more arrays</li>
+        <li>Spread operator (...)</li>
+        <li>Join(); turn the array into a string that comprises all the items in the array, seperated by commas</li>
+        <li>Slice(); creates a subarray</li>
+        <li>Splice(); removes items from an array then inserts new ones in their place, or use 0 to indicate that zero
+            items are to be removed</li>
+        <li>Reverse(); reverses the order of the array</li>
+        <li>Sort(); short the array (alaphabetic is by default)</li>
+        <li>IndexOf(); tells if the item is in the array, or returns -1</li>
+    </ul>
+    <h2>Sets</h2>
+    <p>Syntax for creating a set: const list = new Set();</p>
+    <p>Convert a set into an array:<br>
+        const shoppingArray = [...shoppingSet]<br>
+        shoppingArray<br>
+        [ 'Apples', 'Bananas', 'Beans' ] //output<br>
+    </p>
+    <h2>Maps</h2>
+    <p>They are a convenient way of keeping a list of key and value pairs, and are similar to 'hashes', or 'hash tables'
+        or 'dictionaries' in other programming languages.
+    </p>
+    <p>Differences that Maps have:</p>
+    <ul>
+        <li>Objects are limited to using strings for key values, whereas maps can use any data type as a key.</li>
+        <li>There is no efficient way to find the number of key-value pairs an object has, whereas this is easy to do
+            with maps using the size property.
+        </li>
+        <li>Objects have methods that can be calles and prototypes that can be used to create a chain of inheritance
+            (see Chapter 12), whereas maps are solely focused on the storage and retrieval of key-value pairs.
+        </li>
+        <li>The value of an object's properties can be accessed directly, whereas maps restrict you to using the get()
+            method to retrieve any values.
+        </li>
+    </ul>
+    <p>Syntax for creating a new map:<br>
+        const romanNumerals - new Map ();
+    </p>
+    <p>Map Methods:</p>
+    <ul>
+        <li>Set(); adds to the map</li>
+        <li>Get(); looks up the value based on the key</li>
+        <li>Has(); used to check is a key in in a map</li>
+        <li>Delete(); removes a key value pair from the map</li>
+        <li>Clear(); remove all key value pairs from a map</li>
+    </ul>
+    <p>To convert a map to an array, use the spread operator: Ex: [...romanNumerals]</p>
+    <h2>Loops</h2>
+    <p><strong>While Loop</strong></p>
+    <p>Syntax:<br>
+        while (condition) {<br>
+        // do something<br>
+        }
+    </p>
+    <p><strong>Do While Loops</strong></p>
+    <p>Syntax:<br>
+        do { <br>
+        do something <br>
+        } while(condition)
+    </p>
+    <p><strong>For Loops</strong></p>
+    <p>Syntax:<br>
+        for (initialization ; condition ; after) { do something }
+    </p>
+    <h2>Functions</h2>
+    <p>Functions can have a default value <br>
+        Ex: function hello(name='World') { <br>
+        console.log(`Hello ${name}!); <br>
+        } <br>
+        hello('Universe'); <br>
+        'Hello Universe!' //output
+    </p>
+    <p><strong>Arrow Functions</strong></p>
+    <p>Parameters comes before the arrow and the main body of the function comes after the arrow.</p>
+    <p>Advantages to Arrow Functions:</p>
+    <ul>
+        <li>They are much less verbose than normal function declarations.</li>
+        <li>Single parameters don't need putting into parentheses.</li>
+        <li>The body of the function doesn't need placing inside a block if it's only one line.</li>
+        <li>The return keyword isn't required if the return statement is the only statement in the body of the function.
+        </li>
+        <li>They don't bind their own value of this to the function (we'll see why this is a particularly useful
+            property when we cover objects later in the book).
+        </li>
+    </ul>
+    <p>Mulitple parameter syntax: const add = (x,y) => x + y;</p>
+    <p>String example:<br>
+        const hello = () => alert('Hello World!');
+    </p>
+    <p>Longer functions needs parethesis:<br>
+        const tax = (salary) => {<br>
+        const taxable = salary - 8000;<br>
+        const lowerRate = 0.25 * taxable;<br>
+        taxable = taxable - 20000;<br>
+        const higherRate = 0.4 * taxable;<br>
+        return lowerRate + higherRate;<br>
+        }
+    </p>
+
+
+
+    <h2>Questions:</h2>
+    <ol>
+        <li>When is the best situation to use a set?</li>
+        <li>When is the best situation to use a map?</li>
+        <li>Is it best common practice to use arrow functions?</li>
+    </ol>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>
