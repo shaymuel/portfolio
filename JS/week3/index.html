@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 3 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 3 Notes</h1>
+    <p>This week I spent the majority of my time again reading in the textbook this week.</p>
+    <a href="teamActivityPart1.html">
+        <h2>Week 3 Team Activity Part #1</h2>
+    </a>
+    <a href="teamActivityPart2.html">
+        <h2>Week 3 Team Activity Part #2</h2>
+    </a>
+    <h2>Object Method, "this"</h2>
+    <p>A function that is a property of an object is called it's method.</p>
+    <p>Ex : user.age() - user is the object, the method is age.</p>
+    <p>To access the object, a method can use the "this" keyword and the value of "this" is the object before the dot,
+        the one used to call the method. </p>
+    <p>Ex. Object method needs to access information stored in the object, like a name</p>
+    <p>this['refering to user'].name</p>
+    <p>"this" is evalutaed during the run-time, depending on the context.</p>
+    <p>A method can be accessed with a dot or ['']</p>
+    <p>"This" in Javascript is "free", its value is evaluated at call-time and does not depend on where the method was
+        declare, but rather on what the object is before the dot</p>
+    <p>Arrow functions don't thave their own this</p>
+    <p>6 Different ways where this can take on new values:</p>
+    <ul>
+        <li>in global context</li>
+        <li>in object construction</li>
+        <li>in an object method</li>
+        <li>in a simple function</li>
+        <li>in an arrow function</li>
+        <li>this in an event listener</li>
+    </ul>
+    <p>Ex of this in object construction:</p>
+    <p>function Human (age) { <br>
+        this.age = age <br>
+        } <br>
+        let greg = new Human(22) <br>
+        let thomas = new Human(24) <br>
+        console.log(greg) // this.age = 22 <br>
+        console.log(thomas) // this.age = 24 <br></p>
+    <p>Ex. of this in an object method:</p>
+    <p>function Human (name) { <br>
+        return { <br>
+        name, getName() { <br>
+        return this.name <br>
+        }}} <br>
+        const zell = new Human('Zell') <br>
+        const vincy = new Human('Vincy') <br>
+        console.log(zell.getName()) // Zell <br></p>
+    <p>Ex of this:</p>
+    <p>const dice = { <br>
+        sides: 6, <br>
+        roll() { <br>
+        return Math.floor(this.sides * Math.random()) + 1;}} <br></p>
+    <h2>Objects</h2>
+    <p>If a property's value is a function, it is known as a method. An object is like a dictionary where you can look
+        up a property name and see a value.</p>
+    <p>Objects use curly brackets while arrays use the square objects but square brackets can be used in an object and
+        the property key will be return value of the code inside the square brackets</p>
+    <p>Symbols used for property keys can be used by any object that calls it. Each symbol acts as a unique values and
+        avoids naming clashes if two values have the same property key</p>
+    <p>Ex. Changing a property value: <br>
+        superman['real name'] = 'Kal-El'; <br>
+        'Kal-El' //output</p>
+    <p>Ex. Objects are copied by referenece. <br>
+        const thor = { name: 'Thor' <br>
+        // more properties here }; <br>
+        const cloneThor = thor;</p>
+    <p>Any changes now made to thor will change at both places <br>
+        ex. cloneThor.name = 'Clor'; <br>
+        thor.name <br>
+        'Clor' //output</p>
+    <h2>Namespacing</h2>
+    <p>To prevent naming from becoming too complex, namespacing can be used by placing all our functions inside an
+        object. Then the function must first be called by the object then the property. This helps prevent names from
+        being used or to keep function names more simple and organized</p>
+    <h2>Random Numbers</h2>
+    <p>Math.random() creates random numbers from 0 to 1. To generate a random number between 0 and 10, simply multiply
+        math.random() * 10. To generate an random integer, you can use math.floor around the multiplication.</p>
+    <h2>Regular Expressions</h2>
+    <p>Syntax for creating a new RegExp: const pattern = new RegExp('[a-zA-Z]+ing');</p>
+    <p> A sequence of characters can be represented using a " - " <br>
+        ex: /[A-Z]/ <br>
+        Digits: ex: /[0-9]/ <br>
+        ^ negates the sequences: /[^A-Z]/ this means any characters that is not a capital <br></p>
+    <p>Regular Expressions are objects and have the following properties:</p>
+    <ul>
+        <li>Global Property: makes the pattern return all matches, by default only looks for the first occurrence of a
+            match</li>
+        <li>ignoreCase makes the pattern case-insensitie, default is case sensitive</li>
+        <li>multiline- makes the pattern multipline, by default it stops at the end of a line</li>
+    </ul>
+    <h2>Document Object Model</h2>
+    <p>Tree-like structure of connected nodes in an HTML document. DOM is not actually part of JavaScript, it is
+        language agnostic, but in Javascript we can access this part of the web by using the built in object called
+        document.</p>
+    <p>The DOM stores whitespace that is in the html document as text nodes as well.</p>
+    <h3>DOM Methods</h3>
+    <p>.nodeType tells what type of node it is:</p>
+    <ul>
+        <li>Result 1: element</li>
+        <li>Result 2: attribute</li>
+        <li>Result 3: text</li>
+        <li>Result 8: comment</li>
+        <li>Result 9: body</li>
+    </ul>
+    <p>.nodeName - finds the name of the element</p>
+    <h3>Legacy DOM Shortcut Methods</h3>
+    <p>Document.body, Document.images, Document.links, Document.anchors, Document.forms.</p>
+    <p>Other properties: document.images[0], has .length</p>
+    <p>Nodes are array like objects but they are not arrays. Use the spread operator to turn a DOM object into an array.
+    </p>
+    <h3>Navigating the DOM</h3>
+    <p><strong>childNodes</strong> is a list of all the nodes that are children of the node concerned.<br>
+        <strong>children property</strong> returns any nodes that are children of that node<br>
+        <strong>firstChild</strong> returns the first child of a node <br>
+        <strong>lastChild</strong> returns the last child of a node <br>
+        <strong>nextSibling property</strong> returns the next adjacent node of the same parent
+        <strong>previousSibiling</strong> returns the previous adjacent node
+    </p>
+    <h4>Creating a Text Node</h4>
+    <p>document.createTextNode() takes a paramenter which is a string containing the text that goes into the node</p>
+    <h3>Appending Nodes</h3>
+    <ol>
+        <li>Create the element node</li>
+        <li>Create the text node</li>
+        <li>Append the text node to the element node</li>
+    </ol>
+    <h4>Functions to Create Elements</h4>
+    <p>Create a function with everyting you want to add into the DOM, the call the function with the parameters added of
+        what you want to show up in the DOM</p>
+    <h2>Events</h2>
+    <p>Javascript uses non-blocking apprach that uses event listens to listen out for any clicks on the page. Event
+        listeners are added to elements on the page and are part of the DOM. Inline event handlers are best to be
+        avoided.</p>
+    <h3>Event Listeners</h3>
+    <p>addEventLintener() is called on a node object</p>
+    <p>Parenthesis should not be placed after the function when it's used as the argument to an event listeners;
+        otherwise the fucntion will actually be called when the event listener is set, instead of when the event happens
+    </p>
+    <p>Ex: function doSomething(){ <br>
+        console.log('Something Happened!');} <br>
+        addEventListener('click', doSomething);</p>
+    <h4>Event Object</h4>
+    <p>
+        <strong>Type property</strong> tells us the type of event <br>
+        <strong>Event property</strong> returns a reference tot he node that fired the event
+        <strong>ScreenX&Y, clientX&Y, pageX&Y</strong> help identify where something happened on the page
+    </p>
+    <h4>Mouse Events</h4>
+    <p>click, mousedown, mouseup, dblclick, mouseover, mouseout, mousemove, keydown, keypress, keyup</p>
+    <h4>Touch Events
+    </h4>
+    <p>touchstart, touchend, touchend, touchmove, touchcenter, touchleave, touchcancel</p>
+    <h4>Removing Event Listeners</h4>
+    <p>This can be useful so that events that don't need to don't happen over and over again</p>
+    <h4>Event Propagation</h4>
+    <p><strong>Bubbling - </strong>when the even fires on the element clicked on first the bubbles up the document tree,
+        firing an event on each parent element until it reaches the root node, this is the default</p>
+    <p><strong>Capturing -</strong>starts by firing an event on the root element then propagates downwards firing an
+        even on each child element until it reaches the target element that was clicked on
+    </p>
+
+    <h2>Questions:</h2>
+    <ol>
+        <li>Are there any good resources to learn more about OOP?</li>
+        <li>Are regular expressions used for anything else besides comparisons?</li>
+    </ol>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>
