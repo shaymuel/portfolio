@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 4 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 4 Notes</h1>
+    <p>This week I spent the majority of my time again reading in the textbook this week.</p>
+    <a href="teamActivity/teamactivity.html">
+        <h2>Week 4 Team Activity</h2>
+    </a>
+    <h2>FORMS</h2>
+    <p>Legacy DOM had a useful property document. Forms that returns a html collection of all the forms in the document
+        in the order they appear in the markup.<br>
+        Ex: const form = document.forms[0]; <br>
+        Now we woud use this: <br>
+        const form = document.getElementsByTagname('form')[0]; or const form = document.forms['search'];
+    </p>
+    <h3>FORM PROPERTIES & METHODS</h3>
+    <ul>
+        <li>form.submit() method will submit the form automatially</li>
+        <li>form.reset() method will reset all the form controls back to their initial values specificed in the HTML (a
+            button with an attribute of reset can also be used to do this without the need for additional scripting)
+        </li>
+        <li>form.action() can be used to set the action attribute of a form so it's sent to a different URL to be
+            processed on the server</li>
+    </ul>
+    <h3>FORM EVENTS</h3>
+    <ul>
+        <li>Focus Event - occurs when an element is focused on (either by tapping or navigating on it)</li>
+        <li>Blur event - occurs when the user moves the focus away from the form element</li>
+        <li>Change event - occurs when the user moves the focus away from the form element after changing it</li>
+        <li>Submit event - this can be caught before the form is submitted to the server</li>
+        <li>PreventDefault()- can stop the form from being submitted to the URL altogether</li>
+    </ul>
+    <h3>FORM CONTROLS</h3>
+    <p>Autofocus attribute - give focus to this element when the page loads.</p>
+    <p>In input fields, the default type of input is text, so type=text doesn't need to be included all the time.</p>
+    <p>Checkbox object have a checked property that tells us if it has been checked or not, it is a boolean property.
+    </p>
+    <p>Radio buttons - only one can be checked in a group.</p>
+    <p>The hidden input field should not be used with sensitive data because it can be seen in the HTML.</p>
+    <p>Form Validation - Both client and server side validation should always be used.</p>
+    <h2>OBJECT-ORIENTED PROGRAMMING</h2>
+    <p>Three main concepts in OOP: encapsulation, polymorphism, & inheritance.</p>
+    <p><strong>Encapsulation:</strong> concept of the inner workings being kept hidden inside the object. Only essential
+        functionalities are exposed to the end user. The outside world doesn't need to know how something works or is
+        done.</p>
+    <p><strong>Polymorphism:</strong> the same process can be used for different objects, various objects can share the
+        same method.</p>
+    <p><strong>Inheritance:</strong> taking features of an object that already exists and inherit all its properties and
+        methods, then adding some new ones.</p>
+    <p><strong>Class:</strong> defines a blueprint for an object, objects are then created as an instance of that class
+        and inherit all the properties and methods of the class.</p>
+    <p><strong>Constructor Function:</strong> function that defines the properties and methods of an object.</p>
+    <p><strong>Class Declarations:</strong> Names of constructor functions and class declarations are capitalized, which
+        is the convention used for classes in class-based programming languages.</p>
+    <p>The static keyword can be used in class delecarations to create a static method.</p>
+    <p><strong>Prototypal Inheritance</strong> - every class has a prototpye property that is shared by every instance
+        of the class, this allows you to add properties and methods to a class even if you don't have access to the
+        class.</p>
+    <p>Overwriting prototype properties <br>
+        Ex. leo.weapon = 'Katana Blades'; <br>
+        'Katana Blades';// output <br>
+        When this is done, the property will now become an "own property."
+    </p>
+    <h3>PUBLIC AND PRIVATE METHODS</h3>
+    <p>To prevent others from being able to change your methods and properties, make certian methods and prperties
+        private. Private methods are made by being places as a variable inside the scope of the constructor function
+        inside the class declaration. This makes it impossible to access outsdie of this scope. Using a getter and
+        setter method to form a closure over the variable and provide controlled access to the property instead</p>
+    <p>Extends: a class can inherit from another class using the extends keyword in a class declaration</p>
+    <p>Super keyword refers to the parent class and can be used to access any properties and call methods of the parent
+        class <br>
+        EX: class NinjaTurtle extends Turtle { <br>
+        constructor(name) { <br>
+        super(name); <br>
+        this.weapon = 'hands'; } <br>
+        attack() { return `Feel the power of my ${this.weapon}!` } } <br>
+    </p>
+    <h3>PROPERTY ATTRIBUTES AND DESCRIPTORS</h3>
+    <p>All object properties have the following attributes stored in a property descriptor:</p>
+    <ul>
+        <li>Value ― This is the value of the property and is undefined by default</li>
+        <li>Writable ― This boolean value shows whether a property can be changed or not, and is false by default</li>
+        <li>Enumerable ― this boolean value shows whether a property will show up when the object is displayed in a for
+            in loop, and is false by default</li>
+        <li>Configurable ― this boolean value shows whether you can delete a property or change any of its attributes,
+            and is false by default.</li>
+    </ul>
+    <h3>GETTERS AND SETTERS</h3>
+    <p>Object property descriptor can have a get() and set() method instead of a value attribute, they give much more
+        power in controlling the way property assignments work. <br>
+        Ex: me.age = 21; <br>
+        me.retirementAge = 65;<br>
+        Object.defineProperty(me, 'yearsToRetirement',{<br>
+        get() {<br>
+        if(this.age > this.retirementAge) { return 0; }<br>
+        else { return this.retirementAge - this.age; }<br>
+        },<br>
+        set(value) {<br>
+        this.age = this.retirementAge - value;<br>
+        return value;<br>
+        }});
+    </p>
+    <h3>MIXINS</h3>
+    <p>Mixins - a way of adding properties and methods of some objects to another object using inheritance, it allows
+        more complex objects to be created by mixing basic objects together. Basic mixin functionality is provided by
+        the object.assign() method. To avoid only a shallow copy, we can create our own mixin() function that will
+        assign all properties of an object to another object as a deep copy. A factory function is a function that can
+        be used to return an object.</p>
+    <h3>CHAINING FUNCTIONS</h3>
+    <p>If a method returns this, its methods can be chained together to form a sequence of method calls that are called one after the other. This is used commonly used in JQuery.</p>
+    <p>Composition Over Inheritance - This approach advocates creating small objects that describe single tasks or behaviors and using them as the building blocks for more complex objects</p>
+    <h2>MODERN JAVASCRIPT</h2>
+    <p>Libraries help make writing javascript a lot faster and easier. For example, JQuery. The jQuery library uses the $ symbol as a convenient alias for the the global jQuery object that contains all of jQuery's methods. This prevents the global scope from being polluted with any of jQuery’s methods. The $ symbol has become synonymous with jQuery, and you can confidently expect that any mention of it implies that jQuery is being used.</p>
+    <p>Syntax for exporting and importing simple module:<br>
+        export const PI = 3.1415926; <br>
+        import { PI } from './pi.js';
+    </p>
+    <p>module.exports - method is used to make any funtions available to other files, in a similar way to ES^ modules<br>
+        EX: module.exports = x =>  x * x;<br>
+        to get the function: EX<br>
+        const square = require('./squareFunction');
+    </p>
+    <p>Most projects will have a file in the root directory called 'README'. This files serves as the application's documentation and contains information about it. If you leave the description field blank, then npm will use the first line of the README file as the description.</p>
+    <p>Minification is the process of removing any unneseccary characters from your code to reduce the file size.</p>
+
+
+    <h2>Questions:</h2>
+    <ol>
+        <li>Are there more ways to ensure security on forms besides client-side and server-side validation?</li>
+    </ol>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>
