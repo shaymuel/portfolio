@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 5 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 5 Notes</h1>
+    <p>This week I spent the majority of my time again reading in the textbook this week.</p>
+    <a href="teamActivity/index.html">
+        <h2>Week 5 Team Activity</h2>
+    </a>
+    <h2>TESTING AND DEBUGGING</h2>
+    <p><strong>Exceptions</strong></p>
+    <p>Trying to call something that is nonexistent will result in a reference error that raises an exception.</p>
+    <p>Stack Traces: can produce an exception that leads to the point where the error occurred, this is helpful
+    especially if more than one function or method is called.</p>
+    <p><strong>Warnings</strong></p>
+    <p>These occur when there's an error in the bode but is isn't enought to cause the program to crash.</p>
+    <p>Use Strict can be used on a per function basis as well as on the first line of the javascript document.</p>
+    <p>Linting: Helps to test the qaulity of the code being written beyong just using strict mode. They highlight sloppy programming practices and help make code more consistent and less likely to have problems.</p>
+    <p>Alert: using alert allows for breakpoints to be placed in the code, it stops a program frim running until okay is clicked.</p>
+    <p>One of the most useful commands is the debugger keyword which creates breakpoints in your code that will cause the exectuion of the code and allow you to see where the program is currently upto. </p>
+    <p><strong>Error Objects</strong></p>
+    <p>An error object can be created by the host enviornment when an exception occurs. </p>
+    <p>There are seven more error objects used for specific errors:</p>
+    <ul>
+        <li>EvalError</li>
+        <li>RangeError</li>
+        <li>SyntaxError</li>
+        <li>TypeError</li>
+        <li>URIError</li>
+        <li>InternalError</li>
+        <li>ReferenceError</li>
+    </ul>
+    <p>The message property returns a description of the error and should be provided as an argument to the Error constructor function. The stack property will return a stack trace for that error. This is a non-standard property and it’s recommended that it is not safe to use in production sites.</p>
+    <p>Throw -  an be applied to any expression causing the execution of the program to stop</p>
+    <p><strong>Try, Catch, and Finally</strong></p>
+    <p>
+        If something will result in an exception, wrtap it in a try block. <br>
+        Ex: function imaginarySquareRoot(number) { <br>
+            'use strict'; <br>
+            let answer; <br>
+            try { <br>
+                answer = String(squareRoot(number)); <br>
+            } catch(error) { <br>
+                answer = squareRoot(-number)+"i"; <br>
+            } finally { <br>
+                return `+ or - ${answer}`;     }}<br>
+    </p>
+    <p><strong>Test-driven Development</strong></p>
+    <ol>
+        <li>Write tests (that initially fail)</li>
+        <li>Write code to pass the tests</li>
+        <li>Refactor the code</li>
+        <li>Test refactored code</li>
+        <li>Write more tests for new features</li>
+    </ol>
+    <p>This is often referred to as the “red-green-refactor” cycle of TDD, as failing tests usually show up as red, and tests that pass show as green.</p>
+
+    <h2>Questions:</h2>
+    <ol>
+        <li>Do most developers only use the browser to debug their code? Or is there an industry standard that is used more often than the browser?</li>
+    </ol>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>

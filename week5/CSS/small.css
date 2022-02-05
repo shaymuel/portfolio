@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Merriweather&display=swap');
+
+html {
+    background: black;
+    color: #daa795;
+    font-family: Merriweather, serif;
+    margin-left: 2%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+a {
+    color: #daa795;}
+
+a:hover, a:focus {
+    font-size: larger;
+    transition-duration: 200ms;
+}
