@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+    <h1>My To Do List</h1>
+    <form class="form">
+      <input type="text" class="input" placeholder="I need to...">
+      <button type="submit" class="add-button">Add</button><br>
+      <label for="selectlist">
+      <select name="todoselect" class="filter">
+        <option value="all" class="all">All</option>
+        <option value="completed" class="completed">Completed</option>
+        <option value="uncompleted" class="uncompleted">Uncompleted</option>
+        Options</select>
+  </label>
+    </form>
+
+    <ul class="list"></ul>
+  </main>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
