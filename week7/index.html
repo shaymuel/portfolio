@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 7 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 7 Notes</h1>
+    <p>This week I spent the majority of my time again reading in the textbook this week.</p>
+    <a href="teamActivity/index.html">
+        <h2>Week 5 Team Activity</h2>
+    </a>
+    <a href="tests/index.html">
+        <h2>Code Examples From The Book</h2>
+    </a>
+    <h2>Further Functions</h2>
+    <p>Functions are first-class objects means they can have properties and methods themselves. For example, all
+        functions have a length property that returns the number of parameters the function has. The call() method can
+        be used to set the value of this inside a function to an object that is provided as the first argument. The
+        apply() method works in similar to call(), except the arguments of the function are provided as an array, even
+        if there is only one argument.
+    </p>
+    <p><strong>Custom Properties</strong></p>
+    <p>You can add a description property to a function that describes what it does, or any kind of property for that
+        matter.</p>
+    <p><strong>Memoization</strong></p>
+    <p>If a function takes some time to compute a return value, we can save the result in a cache property. Then if the
+        same argument is used again later, we can return the value from the cache, rather than having to compute the
+        result again</p>
+    <p><strong>Immediately Invoked Function Expressions</strong></p>
+    <p>An Immediately Invoked Function Expression – or IIFE – (pronounced 'iffy') is an anonymous function that, as the
+        name suggests, is invoked as soon as it’s defined. To make one of these, place parentheses at the end of the
+        function and make the whole function into an expression by placing parentheses around the whole funtion as well.
+        Temporary values are good to place in an IIFE so that they do not clash with anything else in the program. An
+        IIFE can be used to set up any initialization code that there’ll be no need for again. An IIFE can be used to
+        enclose a block of code inside its own private scope so it doesn’t interfere with any other part of the program.
+    </p>
+    <p><strong>Functions that Define and Rewrite Themselves</strong></p>
+    <p>The dynamic nature of JavaScript means that a function is able to not only call itself, but define itself, and
+        even redefine itself. This is done by assigning an anonymous function to a variable that has the same name as
+        the function. If the function is also assigned to another variable, this variable will maintain the original
+        function definition and not be rewritten. This is because the original function is assigned to a variable, then
+        within the function, a variable with the same name as the function is assigned to a different function. If any
+        properties have previously been set on the function, these will be lost when the function redefines itself. </p>
+    <p><strong>Recursive Functions</strong></p>
+    <p>A recursive function is one that invokes itself until a certain condition is met.</p>
+    <p><strong>Callbacks</strong></p>
+    <p>Javascript can be run out of order ot asynchronously. Functions call be called and if they run out of time they
+        can invoke another funtion if the time runs out. A call back always has to wait for the current execution stack
+        to complete before it's invoked.</p>
+    <p><strong>Promises</strong></p>
+    <p>Promises don't do anything that can't already be achieved using callbacks, but they help simplify the process,
+        and avoid the convoluted code that can result from using multiple callbacks. When a promise is pending, it is
+        said to be unsettled. Once it has finished, it is said to have been settled. A promise is created using a
+        constructor function. This takes a function called an executor as an argument.</p>
+    <p>Once a promise has been settled, the then() method can be used to deal with the outcome. This method accepts two
+        arguments. The first is a fulfilment function that’s called when the promise is resolved. Any data returned from
+        the resolve() function will be passed along to this function. The second argument is a rejection function that’s
+        called if the promise is rejected. The then() and catch() methods can be chained together to form a succinct
+        description of how to deal with the outcome of the promise.</p>
+    <p><strong>Async Functions</strong></p>
+    <p>Async functions were added to the ES2017 specification. These functions are preceded by the async keyword and
+        allow you to write asynchronous code as if it was synchronous. This is achieved by using the await operator
+        before an asynchronous function. This will wrap the return value of the function in a promise that can then be
+        assigned to a variable. The next line of code is not executed until the promise is resolved.</p>
+    <p><strong>Closures</strong></p>
+    <p>A closure is a reference to a variable that was created inside the scope of another function, but is then kept
+        alive and used in another part of the program. One of the key principles in creating closures is that an 'inner'
+        function, which is declared inside another function, has full access to all of the variables declared inside the
+        scope of the function in which it’s declared (the 'outer' function). A closure is formed when the inner function
+        is returned by the outer function, maintaining access to any variables declared inside the enclosing function.
+    </p>
+    <p><strong>Pure Functions</strong></p>
+    <p>A key aspect of functional programming is its use of pure functions. A pure function is a function that adheres
+        to the following rules:</p>
+    <ol>
+        <li>The return value of a pure function should only depend on the values provided as arguments. It doesn't rely
+            on values from somewhere else in the program.</li>
+        <li>There are no side-effects. A pure function doesn't change any values or data elsewhere in the program. It
+            only makes non-destructive data transformations and returns new values, rather than altering any of the
+            underlying data.</li>
+        <li>Referential transparency. Given the same arguments, a pure function will always return the same result.</li>
+    </ol>
+    <p>These can be cached since they will always return the same answer when the same arguments are given.</p>
+    <p><strong>Currying</strong></p>
+    <p>A function is said to be curried when not all arguments have been supplied to the function, so it returns another
+        function that retains the arguments already provided, and expects the remaining arguments that were omitted when
+        the original function was called. A final result is only returned once all the expected arguments have
+        eventually been provided.</p>
+    <h2>Ajax</h2>
+    <p>Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically updates
+        web pages without reloading. To practice using Ajax, you can either set up a local development server on your
+        own computer, or request the files from an external website that uses cross-origin resource sharing (CORS) in
+        order to avoid the same-origin policy that browsers enforce. It is Asynchronous JavaScript and XML.</p>
+    <p><strong>Fetch API</strong></p>
+    <p>Is currently a living standard for requesting and sending data asynchronously across a network. The Fetch API
+        uses promises to avoid callback hell, and also streamlines a number of concepts that had become cumbersome when
+        using the XMLHttpRequest object. The Fetch API provides a global fetch() method that only has one mandatory
+        argument, which is the URL of the resource you wish to fetch.</p>
+    <p><strong>Response Interface</strong></p>
+    <p>The Fetch API introduced the Response interface that deals with the object that’s returned when the promise is
+        fulfilled. Each response object has an ok property that checks to see if the response is successful. Some other
+        properties of the Response object are:</p>
+    <ul>
+        <li>Headers – A Headers object (see later section) containing any headers associated with the response</li>
+        <li>Url – A string containing the URL of response</li>
+        <li>Redirected – A boolean value that specifies if the response is the result of a redirect</li>
+        <li>Type – A string value of 'basic', 'cors', 'error' or 'opaque'. </li>
+    </ul>
+    <p>The redirect() method can be used to redirect to another URL. The text() method takes a stream of text from the
+        response, reads it to completion and then returns a promise that resolves to a USVSting object that can be
+        treated as a string in JavaScript. The blob() method is used to read a file of raw data, such as an image or a
+        spreadsheet. The json() method is used to deal with these by transforming a stream of JSON data into a promise
+        that resolves to a JavaScript object.</p>
+    <p><strong>Request Interface</strong></p>
+    <p>We can get more fine-grained control over the request being made by providing a Request object as an argument. Request objects are created using the Request() constructor, and include the following properties:</p>
+    <ul>
+        <li>Url – The URL of the requested resource (the only property that is required).</li>
+        <li>Method – a string that specifies which HTTP method should be used for the request. By default, this is 'GET'.</li>
+        <li>Headers – This is a Headers object (see later section) that provides details of the request's headers.</li>
+        <li>Mode – Allows you to specify if CORS is used or not. CORS is enabled by default.</li>
+        <li>Cache – Allows you to specify how the request will use the browser's cache. For example, you can force it to request a resource and update the cache with the result, or you can force it to only look in the cache for the resource.</li>
+        <li>Credentials – Lets you specify if cookies should be allowed with the request.</li>
+        <li>Redirect – Specifies what to do if the response returns a redirect. There’s a choice of three values: 'follow' (the redirect is followed), 'error' (an error is thrown) or 'manual' (the user has to click on a link to follow the redirect)</li>
+
+    </ul>
+    <p>The five most commonly used verbs when dealing with resources on the web are:</p>
+    <ol>
+        <li>GET requests to retrieve resources</li>
+        <li>POST requests, usually used to create a resource but can actually perform any task</li>
+        <li>PUT requests to upsert, which means insert a resource or update it entirely</li>
+        <li>PATCH requests to make partial updates to a resource</li>
+        <li>DELETE requests to delete a resources.</li>
+    </ol>
+    <p>The url property is the first argument, and is required. The second argument is an object made up of any of the other properties.</p>
+    <p><strong>Headers Interface</strong></p>
+    <p>HTTP headers are used to pass on any additional information about a request or response.</p>
+    <ul>
+        <li>Has() – Can be used to check if the headers object contains the header provided as an argument.</li>
+        <li>Get() - Returns the value of the header provided as an argument</li>
+        <li>Set() – Can be used to set a value of an already existing header, or create a new header with the value provided as an argument if it does not already exist.</li>
+        <li>Append() – Adds a new header to the headers object.</li>
+        <li>Delete() – Removes the header provided as an argument.</li>
+        <li>Keys(), Values() and Entries() – Iterators that can be used to iterate over the headers key, values or entries (key and value pairs).</li>
+    </ul>
+    <p><strong>Form Data</strong></p>
+    <p>The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax.</p><br><br>
+    <h2>Questions:</h2>
+    <ol>
+        <li>What type of databases work best with JavaScript?</li>
+    </ol>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>
