@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 8 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 8 Notes</h1>
+    <p>This week I spent the majority of my time again reading in the textbook this week.</p>
+    <a href="teamActivity/index.html">
+        <h2>Week 8 Team Activity</h2>
+    </a>
+    <h2>TRANSFORMS & TRANSITIONS</h2>
+    <p><strong>Transform</strong></p>
+    <p>The CSS3 transform property lets you lets you translate, rotate, scale, and/or skew any element on the page.  The value of the transform property is one or more transform functions (separated by spaces) that will be applied in the order they’re provided.</p>
+    <p><strong>Translation</strong></p>
+    <p>Translation functions allow you to move elements left, right, up, or down. The translate(x,y) function moves an element x from the left, and y from the top. If you only want to move an element vertically or horizontally, you can use the translatex or translatey functions respectively. Transforms don’t work on inline elements. But add display: inline-block; to fix that. </p>
+    <p><strong>Scaling</strong></p>
+    <p>The scale(x,y) function scales an element by the defined factors horizontally then vertically. If only one value is provided, it will be used for both the x and y values, growing or shrinking your element or pseudo-element while maintaining the original aspect ratio. If both are provided it will distort the element. A scaled element will grow outwards from or shrink inwards towards its center; in other words, the element’s center will stay in the same place as its dimensions change. </p>
+    <p><strong>Rotation</strong></p>
+    <p>The rotate() function rotates an element around the point of origin by a specified angle value.</p>
+    <p><strong>Skew</strong></p>
+    <p>The skew(x,y) function specifies a skew along the x and y axes.</p>
+    <p><strong>Origin of the Transform</strong></p>
+    <p>You can control the origin from which your transforms are applied. This is done using the transform-origin property.</p>
+    <p><strong>Transitions</strong></p>
+    <p>Steps to create a simple transition using only CSS:</p>
+    <ul>
+        <li>Declare the original state of the element in the default style declaration.</li>
+        <li>Declare the final state of your transitioned element; for example, a :hover state.</li>
+        <li>Include the transition functions in your default style declaration using the transition properties, including: transition-property, transition-duration, transition-timing-function, and transition-delay.</li>
+    </ul>
+    <p><strong>The transition-duration Property</strong></p>
+    <p>The transition-duration property sets how long the transition will take: the duration of time it takes to go from the default state to the transitioned state</p>
+    <p><strong>The transition-timing-function Property</strong></p>
+    <p>The transition-timing-function lets you control the pace of the transition in even more granular detail. The most common timing functions include the key terms ease, linear, ease-in, ease-out, or ease-in-out. With the steps function, you define the number of steps and the direction of either start or end, where either the first step happens at the animation start, or the last step happens at the animation end respectively. For example, steps(5, start) would jump through the equidistant steps of 0%, 20%, 40%, 60%, and 80%, and steps(5, end) would jump throught the equidistant steps of 20%, 40%, 60%, 80%, and 100%. By using the transition-delay property, it’s possible to introduce a delay before the transition begins. Interestingly, a negative time delay that’s less than the duration of the entire transition will cause it to start immediately, but it will start partway through the animation.</p>
+    <p><strong>Multiple Transition</strong></p>
+    <p>The transition properties allow for multiple transitions in one call. For example, if we want to change the color at the same time as changing the rotation and size, we can. EX: transition: transform 0.2s ease-out 50ms, color 0.1s linear 50ms; If you want to change both properties at the same rate and delay, you can include both property names or—since you are transitioning all the properties listed in the hover state anyway—you can employ the all keyword. When using the all keyword, all the properties transition at the same rate, speed, and delay</p>
+    <p><strong>Animations</strong></p>
+    <p>A keyframe is a snapshot that defines a starting or end point of any smooth transition. CSS animations allow us to add any number of keyframes in between, to guide our animation in more complex ways. To animate an element in CSS, you first create a named animation, then attach it to an element in that element’s property declaration block. Inside each keyframe include the properties you want to animate, along with the animated values. </p>
+    <p><strong>Animation Properties</strong></p>
+    <p>The animation-duration property defines the length of time (in seconds or milliseconds) an animation takes to complete one iteration (all the way through, from 0% to 100%). </p>
+    <p><strong>Animation-Timing-Function</strong></p>
+    <p>Like the transition-timing-function property, the animation-timing-function determines how the animation will progress over its duration. The options are the same as for transition-timing-function: ease, linear, ease-in, ease-out, ease-in-out, a developer-defined cubic-bezier() function, step-start, step-end, or a developer-defined number of steps with the steps(number, direction) function.</p>
+    <p><strong>Animation-Iteration-Count</strong></p>
+    <p>The animation-iteration-count property lets you define how many times the animation will play through. The value is generally an integer, but you can also use numbers with decimal points (in which case, the animation will end partway through an iteration), or the value infinite for endlessly repeating animations. </p>
+    <h2>CANVAS, SVG, AND DRAG & DROP</h2>
+    <p><strong>Canvas</strong></p>
+    <p>With HTML5’s Canvas API, we can draw anything we can imagine, all through JavaScript. The width and height attributes determine how large the canvas’s coordinate system is. If we don’t specify width and height, the canvas element will default to a width of 300 and a height of 150. If we set the width and height for a canvas only in CSS, the canvas element will be 300 by 150, and the CSS properties will simply determine how large the box is that displays the image.
+    <br>Ex: Getting the canvas and the text content:
+    <br>var canvas = document.getElementById("myCanvas");
+    <br>var context = canvas.getContext("2d");
+    </p>
+    <p>Some Canvas Properties & Methods: <br>
+    strokeStyle, fillStyle, CanvasGradient, CanvasPattern, fillRect, strokeRect, drawPattern, onload, createLinearGradient(), createRadialGradient(), addColorStop(), offset, beginPath(), arc(x, y, radius, startAngle, endAngle, anticlockwise), toDataURL
+    </p>
+    <p>Anonymous Functions:  Anonymous functions are much like regular functions except they are without names.</p>
+    <p>Paths create a blueprint for your lines, arcs, and shapes, but paths are invisible until you give them a stroke!  With more complex shapes, we need to take three steps: layout the path, stroke the path, and fill the path. </p>
+    <p><strong>SVG</strong></p>
+    <p>SVG stands for Scalable Vector Graphics, a specific file format that allows you to describe vector graphics using XML. XML stands for eXtensible Markup Language. Like HTML, it’s a markup metalanguage. One open source tool that you can use to make SVG images is Inkscape, which is available for download at http://inkscape.org/. A good resource to know about for public domain images is http://openclipart.org/, where you can find images that are free to use and free of copyright. Raphaël is an open-source JavaScript library that makes drawing and animating with SVG much easier. </p>
+    <p><strong>Drag and Drop</strong></p>
+    <p>There are several steps to adding drag and drop to your page:</p>
+    <ul>
+        <li>Set the draggable attribute on any HTML elements you’d like to be draggable.</li>
+        <li>Add an event listener for the dragstart event on any draggable HTML elements.</li>
+        <li>Add an event listener for the dragover and drop events on any elements that you want to have accept dropped items.</li>
+    </ul>
+    <p>DataTransfer objects are one type of object outlined in the Drag and Drop API. These objects allow us to set and get data about the elements that are being dragged. Specifically, DataTransfer lets us define two pieces of information:</p>
+    <ul>
+        <li>the type of data we’re saving of the draggable element</li>
+        <li>the value of the data itself</li>
+    </ul>
+    
+    
+    
+    <h2>Questions:</h2>
+    <ol>
+        <li>Is it possible to save where a user had dragged and dropped an element into a database or file of some kind?</li>
+    </ol>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>
