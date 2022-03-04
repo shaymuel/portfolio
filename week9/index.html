@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 9 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 9 Notes</h1>
+    <p>This week I spent the majority of my time again reading in the textbook this week.</p>
+    <a href="teamActivity/index.html">
+        <h2>Week 9 Team Activity</h2>
+    </a>
+    <h2>The Window Object</h2>
+    <p><strong>Browser Object Model</strong></p>
+    <p>The Browser Object Model (or BOM for short) is a collection of properties and methods that contain information about the browser and computer screen. Every browser window, tab, popup, frame, and iframe has a window object. This will only ever be used in a browser.  In a browser environment, the global object is the window object. This means that any global variable created is actually a property of the window object.</p>
+    <p><strong>Dialogs</strong></p>
+    <p>The window.alert() method will pause the execution of the program and display a message in a dialog box. The window.confirm() method will stop the execution of the program and display a confirmation dialog that shows the message provided as an argument, and giving the options of OK or Cancel. The window.prompt() method will stop the execution of the program. It displays a dialog that shows a message provided as an argument, as well as an input field that allows the user to enter text. These stop the execution of everything and should probably not be used.</p>
+    <p><strong>Browser Information</strong></p>
+    <p>The window object has a navigator property that returns a reference to the Navigator object. Its userAgent property will return information about the browser and operating system being used. userAgent has been depricated. The window.location property is an object that contains information about the URL of the current page. The href property returns the full URL as a string. The window.location object also has the following methods:</p>
+    <ul>
+        <li>The reload() method can be used to force a reload of the current page. If it’s given a parameter of true, it will force the browser to reload the page from the server, instead of using a cached page.</li>
+        <li>The assign() method can be used to load another resource from a URL provided as a parameter.</li>
+        <li>The replace() method is almost the same as the assign() method, except the current page will not be stored in the session history, so the user will be unable to navigate back to it using the back button.</li>
+        <li>The toString() method returns a string containing the whole URL.</li>
+    </ul>
+    <p><strong>Browser History</strong></p>
+    <p>The window.history property can be used to access information about any previously visited pages in the current browser session. The window.history.length property shows how many pages have been visited before arriving at the current page. The window.history.go() method can be used to go to a specific page, where 0 is the current page. There are also the window.history.forward() and window.history.back() methods that can be used to navigate forwards and backwards by one page respectively, just like using the browser’s forward and back buttons.</p>
+    <p><strong>The Document Object</strong></p>
+    <p>Each window object contains a document object. document.write(): The write() method simply writes a string of text to the page. If a page has already loaded, it will completely replace the current document.</p>
+    <p><strong>Cookies</strong></p>
+    <p>Cookies are small files that are saved locally on a user’s computer. A restriction of cookies is that they can only be read by a web page from the same domain that set them. Cookies are also limited to storing up to 4KB of data, although 20 cookies are allowed per domain, which can add up to quite a lot of data. document.cookie creates a new cookie. By default, cookies can only be read by pages inside the same directory and domain as the file was set. This is for security reasons so that access to the cookie is limited. </p>
+    <p><strong>Timing Functions</strong></p>
+    <p>The window object provides some useful methods for scheduling the execution of a function, and for repeatedly executing functions at regular intervals. The window.setTimeout() method accepts a callback to a function as its first parameter and a number of milliseconds as its second parameter. It can also cancel the timeout using the window.clearTimeout() method. The window.setInterval() method works in a similar way to window.setTimeout(), except that it will repeatedly invoke the callback function after every given number of milliseconds. To stop this, we can use the window.clearInterval() method and the variable repeat as an argument (this is because the window.setInterval() method returns its ID, so this will be assigned to the variable repeat).</p>
+    <h2>HTML5 API's</h2>
+    <p><strong>data- Attribute</strong></p>
+    <p>The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. They’re also private to a page, so are not intended to be used by an external service – their sole purpose is to be used by a JavaScript program. The names of these attributes can be decided by the developer, but they must use the following format:</p>
+    <ul>
+        <li>Start with data-.</li>
+        <li>Contain only lowercase letters, numbers, hyphens, dots, colons or underscores.</li>
+        <li>Include an optional string value.</li>
+        <li>If a data- attribute’s name contains hyphens, they are replaced with camel-case notation, so data-max-length would be accessed using dataset.maxLength.</li>
+    </ul>
+    <p><strong>Web Storage</strong></p>
+    <p>The Web Storage API provides a key-value store on the client’s computer that is similar to using cookies but has fewer restrictions, more storage capacity, and is generally easier to use. The Web Storage API has some crucial differences with cookies:</p>
+    <ul>
+        <li>Information stored is not shared with the server on every request.</li>
+        <li>Information is available in multiple windows of the browser (but only if the domain is the same).</li>
+        <li>Storage capacity limit is much larger than the 4KB limit for cookies ( There is no actual limit in the specification, but most browsers have a limit set at 5GB per domain.)</li>
+        <li>Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a better choice for something like showing a popup once a day.</li>
+    </ul>
+    <p>The window object will have a property called localStorage, which is a native object with a number of properties and methods used to store data. The information is saved in the form of key-value pairs, and the values can only be strings. Every time a value is saved to local storage, a storage event is fired. The event object sent by the event listener to the callback has a number of properties that provide information about the updated item:</p>
+    <ul>
+        <li>key tells us the key of the item that changed</li>
+        <li>newValue tells us the new value to which it has been changed</li>
+        <li>oldValue tells us the previous value before it was changed</li>
+        <li>storageArea tells us if it is stored in local or session storage.</li>
+    </ul>
+    <p><strong>Geolocation</strong></p>
+    <p>The Geolocation API is used to obtain the geographical position of the device. If geolocation is available, it will be a property of the navigator object, this property has a method called getCurrentPosition(). The position object has several other properties that can be used to find out information about the location and movement of the device:</p>
+    <ul>
+        <li>position.speed property returns the ground speed of the device in meters per second.</li>
+        <li>position.altitude property returns an estimate of the device’s altitude in meters above the WGS84 ellipsoid, which is a standard measurement for the center of the Earth.</li>
+        <li>position.heading property returns the direction the device is moving in. This is measured as a bearing in degrees, clockwise from North.</li>
+        <li>position.timestamp property returns the time that the position information was recorded.</li>
+    </ul>
+    <p><strong>Web Workers</strong></p>
+    <p>Web workers allow processes to be run in the background, adding support for concurrency in JavaScript. The postMessage() method can be used to send a message and start the worker working.</p>
+    <p><strong>Web Sockets</strong></p>
+    <p>Websocket is a new protocol that allows two-way communication with a server – also known as push messaging. This means that a connection is kept open and responses are ‘pushed’ to the client as soon as they are received.</p>
+    <p><strong>Notifications</strong></p>
+    <p>The Notification API allows you to show messages using the system's notifications.</p>
+    <p><strong>Multimedia</strong></p>
+    <p>HTML5 introduced the <audio> and <video> tags used to insert audio and video clips into a web page. The controls attribute can be added (without any value) and will display the browser’s native controls, such as play, pause, and volume control. Audio and video clips also have a number of events that will fire when they occur, including:</p>
+        <ul>
+            <li>The play event, which fires when the clip starts and when it resumes after a pause.</li>
+            <li>The pause event, which fires when the clip is paused.</li>
+            <li>The volumechange event, which fires when the volume is changed.</li>
+            <li>The loadedmetadata event which fires when all the video's metadata has loaded.</li>
+        </ul>
+    <p><strong>Shims and Polyfills</strong></p>
+    <p>Modern browsers are very quick to update and implement many of the changes, but you can’t always guarantee that users will have the most up-to-date browser. This is where a shim or a polyfill comes in handy. These are libraries of code that allow you to use the APIs as usual. They then fill in the necessary code that's not provided natively by the user’s browser.</p>
+
+
+    
+    
+    
+    
+    
+    
+    
+    <!-- <h2>Questions:</h2>
+    <ol>
+        <li>What type of databases work best with JavaScript?</li>
+    </ol> -->
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>
