@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 330 Modules / Week 10 Notes</title>
+    <link rel="stylesheet" href="CSS/small.css">
+    <link rel="stylesheet" href="CSS/medium.css">
+    <link rel="stylesheet" href="CSS/large.css">
+</head>
+
+<body>
+    <h1>Week 10 Notes</h1>
+    <p>This week I spent the majority of my time working on the Group Assignment and the Challenge 2.</p>
+    <a href="teamActivity/index.html">
+        <h2>Week 10 Team Activity</h2>
+    </a>
+    <h2>CLIENT-SIDE VALIDATION</h2>
+    <p>Client-side form validation help ensure data submitted matches the requirements set forth in the various form
+        controls. Users can fix client-side validation right away if something is not input correctly. Validation done
+        on the server is called server-side validation. Data passed from the client to the server should never be
+        trusted.</p>
+    <p><strong>Built-in Validation Attributes</strong></p>
+    <p>Required, min/maxlength, min & max, type, pattern (regular expression). CSS pseudo class :valid applies specific
+        style to valid elements. :invalid also can helps users see if something is not valid. </p>
+    <p><strong>Basic examples of how regular expression works:</strong></p>
+    <ul>
+        <li>a — Matches one character that is a (not b, not aa, and so on).</li>
+        <li>abc — Matches a, followed by b, followed by c.</li>
+        <li>ab?c—Matches a, optionally followed by a single b, followed by c. ( ac or abc)</li>
+        <li>ab*c—Matches a, optionally followed by any number of bs, followed by c. ( ac , abc, abbbbbc, and so on).
+        </li>
+        <li>a|b — Matches one character that is a or b.</li>
+        <li>abc|xyz — Matches exactly abc or exactly xyz (but not abcxyz or a or y, and so on).</li>
+        <li>More on regular expressions: <a
+                href=="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">Here</a></li>
+    </ul>
+    <p><strong>To validate a form, ask yourself a few questions:</strong></p>
+    <ul>
+        <li>What kind of validation should I perform?</li>
+        <li>What should I do if the form doesn't validate?</li>
+        <li>How can I help the user to correct invalid data?</li>
+    </ul>
+    <p>In order to reduce the user's frustration, it's very important to provide as much helpful information as possible
+        in order to guide them in correcting their inputs. You should offer up-front suggestions so they know what's
+        expected, as well as clear error messages.</p>
+    <h2>USING THE FETCH API</h2>
+    <p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as
+        requests and responses. The fetch() method can optionally accept a second parameter, an init object that allows
+        youn to control a number of different settings. Files can be uploaded using an HTML input type="file" multiple
+        input element, FormData() and fetch(). </p>
+
+    <!-- <h2>Questions:</h2>
+    <ol>
+        <li></li>
+    </ol> -->
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>
