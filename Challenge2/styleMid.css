@@ -1,0 +1,148 @@
+@media screen and (min-width: 400px) and (max-width: 599px) {
+    header {
+        height: 35em;
+    }
+    h1 {
+        font-size: 2.8em;
+        padding: 1em;
+    }
+    body{
+        padding-top: 35em;
+    }
+    form input[type=text] {
+        width: 60%;
+        height: 2em;
+    }
+    main{
+        grid-auto-columns: 40%;
+    }
+    .movie {
+        width: 250px;
+    }
+
+    main{
+        grid-auto-columns: 60%;
+    }
+    .movie {
+        width: 255px;
+    }
+    ul.list {
+        margin: 0 0 10em 0;
+        padding: 0 2em;
+    }
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 799px) {
+    header {
+        height: 35em;
+    }
+    h1 {
+        font-size: 3.2em;
+        padding: 1em;
+    }
+    body{
+        padding-top: 35em;
+    }
+    form input[type=text] {
+        width: 60%;
+        height: 2em;
+    }
+    main{
+        grid-auto-columns: 42%;
+    }
+    .movie {
+        width: 275px;
+    }
+    ul.list {
+        margin: 0 0 10em 0;
+        padding: 0 2em;
+    }
+
+}
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+    header {
+        height: 35em;
+    }
+    h1 {
+        font-size: 3.5em;
+        padding: 1em;
+    }
+    body{
+        padding-top: 35em;
+    }
+    form input[type=text] {
+        width: 60%;
+        height: 2em;
+    }
+    main{
+        grid-auto-columns: 35%;
+    }
+    .movie {
+        width: 275px;
+    }
+    ul.list {
+        margin: 0 0 10em 0;
+        padding: 0 2em;
+    }
+
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+    header {
+        height: 35em;
+    }
+    h1 {
+        font-size: 3.8em;
+        padding: 1em;
+        margin-top: 0;
+    }
+    body{
+        padding-top: 35em;
+    }
+    form input[type=text] {
+        width: 40%;
+        height: 2.5em;
+    }
+    main{
+        grid-auto-columns: 26%;
+    }
+    .movie {
+        width: 285px;
+    }
+    ul.list {
+        margin: 0 0 10em 0;
+        padding: 0 2em;
+    }
+
+}
+
+@media screen and (min-width: 1201px) {
+    header {
+        height: 35em;
+    }
+    h1 {
+        font-size: 3.8em;
+        padding: 1em;
+        margin-top: 0;
+    }
+    body{
+        padding-top: 35em;
+    }
+    form input[type=text] {
+        width: 40%;
+        height: 2.5em;
+    }
+    main{
+        grid-auto-columns: 21%;
+    }
+    .movie {
+        width: 280px;
+    }
+    ul.list {
+        margin: 0 0 10em 0;
+        padding: 0 2em;
+    }
+
+}
