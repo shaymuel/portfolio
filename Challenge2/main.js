@@ -96,75 +96,6 @@ const genres = [{
   }
 ]
 
-let genreOptions = []
-getGenre();
-
-function getGenre() {
-  tagsElem.innerHTML = '';
-  genres.forEach(genre => {
-    const t = document.createElement('div');
-    t.classList.add('tag');
-    t.id = genre.id;
-    t.innerText = genre.name;
-    t.addEventListener('click', () => {
-      if (genreOptions.length == 0) {
-        genreOptions.push(genre.id);
-      } else {
-        if (genreOptions.includes(genre.id)) {
-          genreOptions.forEach((id, idx) => {
-            if (id == genre.id) {
-              genreOptions.splice(idx, 1);
-            }
-          })
-        } else {
-          genreOptions.push(genre.id);
-        }
-      }
-      displayMovies(discoverURL + '&with_genres=' + encodeURI(genreOptions.join(',')))
-      highlighted()
-    })
-    tagsElem.append(t);
-  })
-}
-
-function highlighted() {
-  const tags = document.querySelectorAll('.tag');
-  tags.forEach(tag => {
-    tag.classList.remove('highlight')
-  })
-  cleared()
-  if (genreOptions.length != 0) {
-    genreOptions.forEach(id => {
-      const hightlightedTag = document.getElementById(id);
-      hightlightedTag.classList.add('highlight');
-    })
-  }
-
-}
-
-function cleared() {
-  let cleared = document.getElementById('clear');
-  if (cleared) {
-    cleared.classList.add('highlight')
-  } else {
-
-    let clear = document.createElement('div');
-    clear.classList.add('tag', 'highlight');
-    clear.id = 'clear';
-    clear.innerText = 'Clear x';
-    clear.addEventListener('click', () => {
-      genreOptions = [];
-      getGenre();
-      displayMovies(discoverURL);
-    })
-    tagsElem.append(clear);
-  }
-}
-
-document.querySelector('.toggleTagMenu').addEventListener('click', () => {
-  tagsElem.classList.toggle('hidden');
-})
-
 displayMovies(discoverURL);
 
 function displayMovies(url) {
@@ -231,6 +162,92 @@ function buildMovies(data) {
   })
 }
 
+function getColor(vote) {
+  if (vote >= 8) {
+    return 'green'
+  } else if (vote >= 5) {
+    return "orange"
+  } else {
+    return 'red'
+  }
+}
+
+function getOverview(overview) {
+  if (overview.length > 250) {
+    return overview.slice(0, 300) + '...';
+  } else {
+    return overview;
+  }
+}
+
+let genreOptions = []
+getGenre();
+
+function getGenre() {
+  tagsElem.innerHTML = '';
+  genres.forEach(genre => {
+    const t = document.createElement('div');
+    t.classList.add('tag');
+    t.id = genre.id;
+    t.innerText = genre.name;
+    t.addEventListener('click', () => {
+      if (genreOptions.length == 0) {
+        genreOptions.push(genre.id);
+      } else {
+        if (genreOptions.includes(genre.id)) {
+          genreOptions.forEach((id, idx) => {
+            if (id == genre.id) {
+              genreOptions.splice(idx, 1);
+            }
+          })
+        } else {
+          genreOptions.push(genre.id);
+        }
+      }
+      displayMovies(discoverURL + '&with_genres=' + encodeURI(genreOptions.join(',')))
+      highlighted()
+    })
+    tagsElem.append(t);
+  })
+}
+
+function highlighted() {
+  const tags = document.querySelectorAll('.tag');
+  tags.forEach(tag => {
+    tag.classList.remove('highlight')
+  })
+  cleared()
+  if (genreOptions.length != 0) {
+    genreOptions.forEach(id => {
+      const hightlightedTag = document.getElementById(id);
+      hightlightedTag.classList.add('highlight');
+    })
+  }
+}
+
+function cleared() {
+  let cleared = document.getElementById('clear');
+  if (cleared) {
+    cleared.classList.add('highlight')
+  } else {
+
+    let clear = document.createElement('div');
+    clear.classList.add('tag', 'highlight');
+    clear.id = 'clear';
+    clear.innerText = 'Clear x';
+    clear.addEventListener('click', () => {
+      genreOptions = [];
+      getGenre();
+      displayMovies(discoverURL);
+    })
+    tagsElem.append(clear);
+  }
+}
+
+document.querySelector('.toggleTagMenu').addEventListener('click', () => {
+  tagsElem.classList.toggle('hidden');
+})
+
 const overlayContent = document.getElementById('overlay-content');
 
 function videoNav(movie) {
@@ -290,24 +307,6 @@ function showVideos() {
     }
   })
 
-}
-
-function getColor(vote) {
-  if (vote >= 8) {
-    return 'green'
-  } else if (vote >= 5) {
-    return "orange"
-  } else {
-    return 'red'
-  }
-}
-
-function getOverview(overview) {
-  if (overview.length > 250) {
-    return overview.slice(0, 300) + '...';
-  } else {
-    return overview;
-  }
 }
 
 form.addEventListener('submit', (e) => {
