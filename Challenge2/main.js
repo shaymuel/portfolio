@@ -218,7 +218,7 @@ function buildMovies(data) {
                 <h3>Overview</h3>
                 ${getOverview(overview)}
                 <br/> 
-                <button class="know-more" id="${id}">Know More</button
+                <button class="know-more" id="${id}">Trailers</button
             </div>
         
         `
@@ -365,6 +365,8 @@ list.addEventListener('click', (event) => {
   displayMovies(searchURL + '&query=' + searchTerm);
   document.getElementById("search").placeholder = searchTerm;
 });
+
+let searchHistory = [];
 
 function addInput(item) {
   if (item !== '') {
